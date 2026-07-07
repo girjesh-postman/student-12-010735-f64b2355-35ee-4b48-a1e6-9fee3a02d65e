@@ -25,11 +25,17 @@ body:
       }
     }
 scripts:
-  - type: afterResponse
+  - type: beforeRequest
     code: |-
       pm.variables.set("id", 4474);
       pm.variables.set("username", "Shirley.Schaden90");
       pm.variables.set("password", "7_jE8Hve20cjcfC");
+    language: text/javascript
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
     language: text/javascript
 examples: ./.resources/Log in a user.resources/examples
 order: 1000
