@@ -29,14 +29,14 @@ scripts:
     code: |-
       const username = pm.variables.replaceIn('{{$randomUserName}}');
       const password = pm.variables.replaceIn('{{$randomPassword}}');
-      pm.variables.set('username', username);
-      pm.variables.set('password', password);
+      pm.environment.set('username', username);
+      pm.environment.set('password', password);
   - type: afterResponse
     language: text/javascript
     code: |-
       const response = pm.response.json();
       const id = response.id;
-      pm.variables.set('id', id);
+      pm.environment.set('id', id);
       pm.test('Status code is 201', function () {
         pm.response.to.have.status(201);
       });

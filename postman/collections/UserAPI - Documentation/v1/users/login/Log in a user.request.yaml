@@ -24,13 +24,6 @@ body:
       }
     }
 scripts:
-  - type: beforeRequest
-    language: text/javascript
-    code: |-
-      const username = pm.variables.get('username');
-      const password = pm.variables.get('password');
-      pm.variables.set('username', username);
-      pm.variables.set('password', password);
   - type: afterResponse
     language: text/javascript
     code: |-
